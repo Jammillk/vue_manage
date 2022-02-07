@@ -1,6 +1,12 @@
 <template>
   <div class="hello">
-    <el-button type="primary">button</el-button>
+    <router-link to="/">
+      <el-button type="primary">主要按钮</el-button>
+    </router-link>
+    <router-link to="/user">
+      <el-button type="success">成功按钮</el-button>
+    </router-link>
+
   </div>
 </template>
 
@@ -18,14 +24,17 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
