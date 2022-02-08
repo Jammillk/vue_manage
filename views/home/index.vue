@@ -137,6 +137,7 @@ export default {
           legend: {
             data: keyArray
           },
+          tooltip:{},
           series
         }
         const E = echarts.init(this.$refs.echarts)
