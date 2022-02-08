@@ -17,7 +17,7 @@ export default {
       default() {
         return {
           xData: [],
-          series
+          series: []
         }
       }
     }
@@ -35,9 +35,9 @@ export default {
   methods: {
     initChart() {
       this.initChartData()
-      if(this.echart){
+      if (this.echart) {
         this.echart.setOption(this.options)
-      }else{
+      } else {
         this.echart = echart.init(this.$refs.echart)
         this.echart.setOption(this.options)
       }
@@ -90,7 +90,7 @@ export default {
             },
           },
         ],
-        color: ["#2ec7c9", "#b6a2de"],
+        color: ["#2ec7c9", "#b6a2de", "#5ab1ef", "#ffb980", "#d87a80", "#8d98b3"],
         series: [],
       },
       normalOption: {
