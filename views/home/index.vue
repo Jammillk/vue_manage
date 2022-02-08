@@ -48,7 +48,9 @@
       </el-card>
 
       <div class="graph">
-        <el-card style="height: 265px"></el-card>
+        <el-card style="height: 265px">
+          <div style="height: 240px" ref="userEcharts"></div>
+        </el-card>
         <el-card style="height: 265px"></el-card>
       </div>
     </el-col>
@@ -117,6 +119,7 @@ export default {
       if (code === 20000) {
         // 赋值，从mock中取到的数据，放进去
         this.tableData = data.tableData;
+        // 折线图
         const order = data.orderData
         const xData = order.date
         const keyArray = Object.keys(order.data[0]);
@@ -128,7 +131,6 @@ export default {
             type: 'line'
           })
         })
-
         const option = {
           xAxis: {
             data: xData
@@ -137,13 +139,71 @@ export default {
           legend: {
             data: keyArray
           },
-          tooltip:{},
+          tooltip: {
+            axisPointer: {
+              type: 'cross'
+            }
+          },
           series
         }
         const E = echarts.init(this.$refs.echarts)
         E.setOption(option)
-
+        // 用户图
+        const userOption = {
+          legend: {
+            // 图例文字颜色
+            textStyle: {
+              color: "#333",
+            },
+          },
+          grid: {
+            left: "20%",
+          },
+          // 提示框
+          tooltip: {
+            trigger: "axis",
+          },
+          xAxis: {
+            type: "category", // 类目轴
+            data: data.userData.map(item => item.date),
+            axisLine: {
+              lineStyle: {
+                color: "#17b3a3",
+              },
+            },
+            axisLabel: {
+              interval: 0,
+              color: "#333",
+            },
+          },
+          yAxis: [
+            {
+              type: "value",
+              axisLine: {
+                lineStyle: {
+                  color: "#17b3a3",
+                },
+              },
+            },
+          ],
+          color: ["#2ec7c9", "#b6a2de"],
+          series: [
+            {
+              name: '新增用户',
+              data: data.userData.map(item => item.new),
+              type: 'bar'
+            },
+            {
+              name: '活跃用户',
+              data: data.userData.map(item => item.active),
+              type: 'bar'
+            }
+          ],
+        }
+        const U = echarts.init(this.$refs.userEcharts)
+        U.setOption(userOption)
       }
+
       console.log(res)
     })
   }
