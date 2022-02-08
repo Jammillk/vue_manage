@@ -48,7 +48,7 @@
         <el-card style="height: 265px"></el-card>
       </div>
     </el-col>
-
+    {{a}}
   </el-row>
 </template>
 
@@ -140,8 +140,15 @@ export default {
           color: "#5ab1ef",
         },
       ]
-
     }
+  },
+  mounted() {
+    this.$http.get("/user?id=1")
+        .then(function (response) {
+          console.log(response)
+        }).catch(function (response) {
+          console.log(response)
+    })
   }
 }
 </script>
