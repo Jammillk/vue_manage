@@ -2,9 +2,9 @@
   <header>
     <div class="l-content">
       <el-button @click="handleMenu" plain icon="el-icon-menu" size="mini"></el-button>
-      <!--      <h3 style="color: #fff">首页</h3>-->
-      <el-breadcrumb>
-        <el-breadcrumb-item v-for="item in tags" :key="item.path" :to="{path: item.path}">
+<!--            <h3 style="color: #fff">首页</h3>-->
+      <el-breadcrumb  style="color: #999" separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item class="myColor" v-for="item in tags" :key="item.path" :to="{path: item.path}">
           {{ item.label }}
         </el-breadcrumb-item>
       </el-breadcrumb>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'CommonHeader',
@@ -71,5 +71,8 @@ header {
     border-radius: 50%;
   }
 }
-
+/*改颜色*/
+//.myColor /deep/ .el-breadcrumb__inner {
+//  color: #999 ;
+//}
 </style>
