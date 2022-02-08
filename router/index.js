@@ -25,11 +25,11 @@ const router = new VueRouter({
                     name: 'mall',
                     component: () => import('../views/mall')
                 }, {
-                    path: 'other/page1',
+                    path: '/page1',
                     name: 'page1',
                     component: () => import('../views/other/pageOne')
                 }, {
-                    path: 'other/page2',
+                    path: '/page2',
                     name: 'page2',
                     component: () => import('../views/other/pageTwo')
                 }

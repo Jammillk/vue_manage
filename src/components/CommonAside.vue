@@ -93,6 +93,8 @@ export default {
       this.$router.push({
         name: item.name
       })
+      // 存到vuex中
+      this.$store.commit('selectMenu', item)
     }
   },
   computed: {
