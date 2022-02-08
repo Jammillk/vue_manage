@@ -41,7 +41,11 @@
 
       </div>
 
-      <el-card style="height: 280px"></el-card>
+      <el-card style="height: 280px">
+        <div style="height: 280px" ref="echarts">
+
+        </div>
+      </el-card>
 
       <div class="graph">
         <el-card style="height: 265px"></el-card>
@@ -53,6 +57,7 @@
 
 <script>
 import {getData} from '../../api/data'
+import * as echarts from 'echarts'
 
 export default {
   name: 'Home',
@@ -112,6 +117,31 @@ export default {
       if (code === 20000) {
         // 赋值，从mock中取到的数据，放进去
         this.tableData = data.tableData;
+        const order = data.orderData
+        const xData = order.date
+        const keyArray = Object.keys(order.data[0]);
+        const series = []
+        keyArray.forEach(key => {
+          series.push({
+            name: key,
+            data: order.data.map(item => item[key]),
+            type: 'line'
+          })
+        })
+
+        const option = {
+          xAxis: {
+            data: xData
+          },
+          yAxis: {},
+          legend: {
+            data: keyArray
+          },
+          series
+        }
+        const E = echarts.init(this.$refs.echarts)
+        E.setOption(option)
+
       }
       console.log(res)
     })
