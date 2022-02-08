@@ -51,7 +51,9 @@
         <el-card style="height: 265px">
           <div style="height: 240px" ref="userEcharts"></div>
         </el-card>
-        <el-card style="height: 265px"></el-card>
+        <el-card style="height: 265px">
+          <div style="height: 240px" ref="videoEcharts"></div>
+        </el-card>
       </div>
     </el-col>
   </el-row>
@@ -202,6 +204,29 @@ export default {
         }
         const U = echarts.init(this.$refs.userEcharts)
         U.setOption(userOption)
+        // 饼图
+        const videoOption = {
+          tooltip: {
+            trigger: "item",
+          },
+          color: [
+            "#0f78f4",
+            "#dd536b",
+            "#9462e5",
+            "#a6a6a6",
+            "#e1bb22",
+            "#39c362",
+            "#3ed1cf",
+          ],
+          series: [
+            {
+              data: data.videoData,
+              type: 'pie'
+            }
+          ],
+        }
+        const V = echarts.init(this.$refs.videoEcharts)
+        V.setOption(videoOption)
       }
 
       console.log(res)
