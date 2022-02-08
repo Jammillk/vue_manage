@@ -4,7 +4,7 @@ export default {
         // 存放面包屑的元素，默认有个首页
         tabsList: [
             {
-                path: '/',
+                path: '/home',
                 name: 'home',
                 label: '首页',
                 icon: 'home'
