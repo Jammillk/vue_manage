@@ -6,6 +6,7 @@ import router from "../router";
 import './assets/less/index.less'
 import store from "./store/index"
 import http from 'axios'
+import '../api/mock'
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
