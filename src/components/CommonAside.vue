@@ -12,7 +12,7 @@
         <span slot="title">{{ item.label }}</span>
       </template>
       <el-menu-item-group v-for="(subItem, subIndex) in item.children" :key="subItem.path">
-        <el-menu-item :index="subIndex.toString()">{{ subItem.label }}</el-menu-item>
+        <el-menu-item  @click="clickMenu(subItem)" :index="subIndex">{{ subItem.label }}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -48,8 +48,8 @@ export default {
           icon: 's-home',
           url: 'Home/Home'
         }, {
-          path: '/mail',
-          name: 'mail',
+          path: '/mall',
+          name: 'mall',
           label: '商品管理',
           icon: 'video-play',
           url: 'MailManage/MailManage'
@@ -68,13 +68,13 @@ export default {
               name: 'page1',
               label: '页面1',
               icon: 'setting',
-              url: 'Other/PageOne'
+              url: 'other/page1'
             }, {
               path: '/page2',
               name: 'page2',
               label: '页面2',
               icon: 'setting',
-              url: 'Other/PageTwo'
+              url: 'other/page2'
             }
           ]
         }

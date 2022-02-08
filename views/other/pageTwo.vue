@@ -1,0 +1,12 @@
+<template>
+  <div class="PageTwo">我是PageTwo页面</div>
+</template>
+
+<script>
+export default {
+  name: 'PageTwo',
+  data() {
+    return {}
+  }
+}
+</script>

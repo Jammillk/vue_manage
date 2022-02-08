@@ -1,25 +1,37 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main'
-import User from '../views/user'
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
     mode: "history",
-    routes :[
+    routes: [
         {
             path: '/',
             name: 'Main',
             component: Main,
-            children:[
+            children: [
                 {
                     path: '/home',
                     name: 'home',
-                    component: ()=> import('../views/home')
-                },{
+                    component: () => import('../views/home')
+                }, {
                     path: '/user',
                     name: 'user',
-                    component: User
+                    component: () => import('../views/user')
+                }, {
+                    path: '/mall',
+                    name: 'mall',
+                    component: () => import('../views/mall')
+                }, {
+                    path: 'other/page1',
+                    name: 'page1',
+                    component: () => import('../views/other/pageOne')
+                }, {
+                    path: 'other/page2',
+                    name: 'page2',
+                    component: () => import('../views/other/pageTwo')
                 }
             ]
         }
