@@ -26,8 +26,10 @@ class HttpRequest {
         });
         // 对响应数据做点什么
         instance.interceptors.response.use(function (response) {
+            console.log(response, 'response')
             return response
         }, function (error) {
+            console.log(error, 'error')
             return Promise.reject(error)
         });
     }

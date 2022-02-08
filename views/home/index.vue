@@ -20,7 +20,7 @@
           <el-table-column
               v-for="(val, key) in tableLabel"
               :key="key"
-              :prop="key"
+              :prop='key'
               :label="val">
           </el-table-column>
         </el-table>
@@ -48,11 +48,12 @@
         <el-card style="height: 265px"></el-card>
       </div>
     </el-col>
-    {{a}}
   </el-row>
 </template>
 
 <script>
+import {getMenu} from '../../api/data'
+
 export default {
   name: 'Home',
   data() {
@@ -143,11 +144,8 @@ export default {
     }
   },
   mounted() {
-    this.$http.get("/user?id=1")
-        .then(function (response) {
-          console.log(response)
-        }).catch(function (response) {
-          console.log(response)
+    getMenu().then(res=>{
+      console.log(res)
     })
   }
 }
