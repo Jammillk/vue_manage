@@ -189,7 +189,6 @@ export default {
         cancelButtonText: "取消",
         type: 'warning'
       }).then(() => {
-        console.log(123333)
         const id = row.id
         this.$http.get("/user/del", {
           params: {id}
