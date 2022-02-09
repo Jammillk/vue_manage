@@ -24,6 +24,7 @@
         <el-button type="primary" @click="getList">搜索</el-button>
       </common-form>
     </div>
+
   </div>
 </template>
 
