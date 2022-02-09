@@ -29,6 +29,10 @@ export default {
                 // 重置标识
                 state.currentMenu = null;
             }
+        },
+        closeTag(state, val) {
+            const result = state.tabsList.findIndex(item => item.name === val.name)
+            state.tabsList.splice(result, 1)
         }
     }
 }
