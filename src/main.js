@@ -12,6 +12,17 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.prototype.$http = http;
 
+router.beforeEach((to, from, next) => {
+    store.commit('getToken')
+    const token = store.state.user.token
+    // 没有token，直接回去login页
+    if (!token && to.name !== 'login') {
+        next({name: 'login'})
+    }else{
+        next()
+    }
+})
+
 new Vue({
     store,
     router,

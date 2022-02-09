@@ -37,6 +37,8 @@
 </template>
 
 <script>
+// import Mock from 'mockjs'
+
 export default {
   name: "login",
   data() {
@@ -70,7 +72,9 @@ export default {
   },
   methods: {
     login() {
-
+      const token = '123456'
+      this.$store.commit('setToken', token)
+      this.$router.push({name: 'home'})
     }
   }
 }
@@ -94,7 +98,7 @@ export default {
   color: #505458;
 }
 
-.login_submit{
+.login_submit {
   margin: 10px auto 0 auto;
 }
 </style>
