@@ -2,8 +2,7 @@
   <header>
     <div class="l-content">
       <el-button @click="handleMenu" plain icon="el-icon-menu" size="mini"></el-button>
-<!--            <h3 style="color: #fff">首页</h3>-->
-      <el-breadcrumb  style="color: #999" separator-class="el-icon-arrow-right">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item class="myColor" v-for="item in tags" :key="item.path" :to="{path: item.path}">
           {{ item.label }}
         </el-breadcrumb-item>
@@ -71,6 +70,13 @@ header {
     border-radius: 50%;
   }
 }
+.el-breadcrumb  /deep/  .el-breadcrumb__inner
+{
+  color: #fff !important;				//你想要设置的字体颜色
+}
+//.el-breadcrumb__inner a, .el-breadcrumb__inner.is-link{
+//  color: #fff;
+//}
 /*改颜色*/
 //.myColor /deep/ .el-breadcrumb__inner {
 //  color: #999 ;

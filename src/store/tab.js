@@ -18,7 +18,7 @@ export default {
             state.isCollapse = !state.isCollapse;
         },
         selectMenu(state, val) {
-            if (val !== 'home') {
+            if (val.name !== 'home') {
                 // 不是首页
                 state.currentMenu = val;
                 const result = state.tabsList.findIndex(item => item.name === val.name)
