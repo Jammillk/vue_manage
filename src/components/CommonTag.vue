@@ -7,8 +7,7 @@
         :closable="tag.name !== 'home'"
         :effect="$route.name === tag.name ? 'dark' : 'plain'"
         @click="changeMenu(tag)"
-        @close="handleClose(tag, index)"
-    >
+        @close="handleClose(tag, index)">
       {{ tag.label }}
     </el-tag>
   </div>
@@ -38,3 +37,14 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.tabs {
+  padding: 20px;
+  .el-tag {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+}
+</style>
