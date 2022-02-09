@@ -8,8 +8,16 @@ export const getMenu = (param) => {
     })
 }
 
-export const getData=()=>{
+export const getData = () => {
     return axios.request({
         url: '/home/getData'
+    })
+}
+
+export const getUser = (params) => {
+    return axios.request({
+        url: '/user/getUser',
+        method: 'get',
+        params
     })
 }

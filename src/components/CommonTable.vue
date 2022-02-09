@@ -25,7 +25,6 @@
         :current-page.sync="config.page"
         @current-change="changePage"
         :page-size="20">
-
     </el-pagination>
   </div>
 </template>
@@ -42,14 +41,16 @@ export default {
     return {}
   },
   methods: {
-    handleEdit() {
-
+    handleEdit(row) {
+      // 向父组件传递
+      // 父组件用的时候一定要用相同的名字
+      this.$emit('edit', row)
     },
-    handleDelete() {
-
+    handleDelete(row) {
+      this.$emit('delete', row)
     },
-    changePage() {
-
+    changePage(page) {
+      this.$emit('changePage', page)
     }
   }
 }
@@ -60,7 +61,8 @@ export default {
   height: calc(100% - 62px);
   background-color: #fff;
   position: relative;
-  .pager{
+
+  .pager {
     position: absolute;
     bottom: 0;
     right: 20px;
